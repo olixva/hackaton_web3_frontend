@@ -5,7 +5,7 @@ import { getUser, User } from "@/services/userService.service";
 export function Home() {
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
-  const userId: string = "692b2e7deed34135d7cf5a8c";
+  const userId: string = "692b566e0ef3a85601b288f2";
 
   useEffect(() => {
     getUser(userId)
