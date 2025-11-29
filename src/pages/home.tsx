@@ -25,13 +25,14 @@ export function Home() {
   return (
     <div>
       <Welcome />
-    <div style={{ padding: "20px" }}>
-      <h1>Bienvenido a Lumia</h1>
+      <div style={{ padding: "20px" }}>
+        <h1>Bienvenido a Lumia</h1>
 
-      <h2>Usuario cargado:</h2>
+        <h2>Usuario cargado:</h2>
 
-      <p><strong>ID:</strong> {user?.id}</p>
-      <p><strong>Nombre:</strong> {user?.name}</p>
+        <p><strong>ID:</strong> {user?.id}</p>
+        <p><strong>Nombre:</strong> {user?.name}</p>
+      </div>
     </div>
   );
 }
