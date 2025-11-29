@@ -1,6 +1,8 @@
-// src/pages/home.tsx
+
+import Welcome from '../components/welcome';
 import { useEffect, useState } from "react";
 import { getUser, User } from "@/services/userService.service";
+
 
 export function Home() {
   const [user, setUser] = useState<User | null>(null);
@@ -21,6 +23,8 @@ export function Home() {
   console.log("Usuario", user)
 
   return (
+    <div>
+      <Welcome />
     <div style={{ padding: "20px" }}>
       <h1>Bienvenido a Lumia</h1>
 
