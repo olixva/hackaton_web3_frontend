@@ -20,19 +20,16 @@ export function Home() {
     return <p style={{ padding: "20px" }}>Cargando usuario...</p>;
   }
 
+  if (!user) {
+    return <p style={{ padding: "20px" }}>Hola Paco</p>;
+  }
+
   console.log("Usuario", user)
 
   return (
     <div>
-      <Welcome />
-      <div style={{ padding: "20px" }}>
-        <h1>Bienvenido a Lumia</h1>
+      <Welcome name={user.name} profileImage={user.profile_image_url}/>
 
-        <h2>Usuario cargado:</h2>
-
-        <p><strong>ID:</strong> {user?.id}</p>
-        <p><strong>Nombre:</strong> {user?.name}</p>
       </div>
-    </div>
   );
 }

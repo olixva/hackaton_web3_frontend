@@ -4,6 +4,7 @@ const API_URL = "https://hackaton-web3-backend.vercel.app";
 export interface User {
   id: number;
   name: string;
+  profile_image_url: string;
 //   email: string;
 }
 
