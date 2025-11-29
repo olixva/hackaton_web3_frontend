@@ -1,6 +1,11 @@
 export function Bills(){
     return(
-        <div>Bills</div>
+        <div>Bills
+
+        </div>
+        
+
+        
     )
 
 }

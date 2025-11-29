@@ -8,19 +8,17 @@ import { Bills } from "./pages/bills";
 import { Home } from "./pages/home";
 import { Messages } from "./pages/messages";
 import { Profile } from "./pages/profile";
+import { Layout } from "./layout";
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
-    <>
-      <Route
-        path="/"
-        element={<Home />}
-        errorElement={<h1>Not found!</h1>}
-      />
-      <Route path="/home" element={<Home />} />
-      <Route path="/messages" element={<Messages />} />
-      <Route path="/bills" element={<Bills />} />
-      <Route path="/profile" element={<Profile />} />
-    </>
+    <Route element={<Layout />} errorElement={<h1>Not found!</h1>}>
+      <Route index element={<Home />} />
+
+      <Route path="home" element={<Home />} />
+      <Route path="messages" element={<Messages />} />
+      <Route path="bills" element={<Bills />} />
+      <Route path="profile" element={<Profile />} />
+    </Route>
   )
 );
