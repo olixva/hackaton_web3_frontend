@@ -1,4 +1,3 @@
-// AlarmCard.tsx
 import { Alert } from "@/services/alertService.service";
 import "./alarmCard.css";
 
@@ -29,7 +28,6 @@ export function AlarmCard({ alarm, onToggle }: AlarmCardProps) {
                 </div>
             </div>
 
-            {/* Usa button y añade onClick */}
             <button
                 type="button"
                 className={`alarm-switch ${isActive ? "alarm-switch--on" : "alarm-switch--off"}`}

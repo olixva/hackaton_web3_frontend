@@ -1,4 +1,3 @@
-// src/components/createAlarmModal.tsx
 import { useState } from "react";
 import "./createAlarmModal.css";
 

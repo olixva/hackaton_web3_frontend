@@ -42,7 +42,7 @@
 }
 
 .tab.active {
-  background: #34c759;
+  background: #85d781;
   color: white;
 }
 
@@ -53,11 +53,11 @@
 .modal-time-input {
   width: 100%;
   border-radius: 999px;
-  border: 2px solid #34c759;
+  border: 2px solid #85d781;
   padding: 8px 16px;
   text-align: center;
   font-size: 18px;
-  color: #34c759;
+  color: #85d781;
 }
 
 .modal-type-toggle {
@@ -72,12 +72,12 @@
   border: none;
   padding: 8px 0;
   background: #e6ffe9;
-  color: #34c759;
+  color: #85d781;
   font-weight: 500;
 }
 
 .toggle-btn.active {
-  background: #34c759;
+  background: #85d781;
   color: white;
 }
 
@@ -96,19 +96,19 @@
   height: 40px;
   font-size: 24px;
   background: #e6ffe9;
-  color: #34c759;
+  color: #85d781;
 }
 
 .threshold-value {
   font-size: 40px;
-  color: #34c759;
+  color: #85d781;
   font-weight: 600;
 }
 
 .modal-name-input {
   width: 100%;
   border-radius: 999px;
-  border: 2px solid #34c759;
+  border: 2px solid #85d781;
   padding: 10px 16px;
   margin-bottom: 24px;
 }
@@ -133,6 +133,6 @@
 }
 
 .btn-confirm {
-  background: #34c759;
+  background: #85d781;
   color: white;
 }

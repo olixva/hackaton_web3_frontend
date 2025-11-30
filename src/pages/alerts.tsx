@@ -147,7 +147,7 @@ export function Alerts() {
             <div className="history-wrapper">
               <DrawerHeader className="history-header">
                 <DrawerTitle className="history-title">
-                  Ver historial de alertas
+                   Historial de alertas
                 </DrawerTitle>
               </DrawerHeader>
 
