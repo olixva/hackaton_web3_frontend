@@ -1,0 +1,98 @@
+/* Contenedor de la tarjeta: pill verde */
+.alarm-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  max-width: 350px;
+  padding: 14px 22px;
+
+  border: 2px solid #85d781;
+  border-radius: 9999px;
+  background-color: #ffffff;
+
+  margin-bottom: 12px;
+}
+
+/* Columna izquierda: cantidad + texto */
+.alarm-card__info {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Cantidad grande (25€ / 120€...) */
+.alarm-card__amount {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.amount-value {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #85d781;
+  line-height: 1;
+}
+
+.amount-currency {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #85d781;
+}
+
+/* Texto debajo (Tope semanal, Vacaciones...) */
+.alarm-card__label {
+  margin-top: 4px;
+  font-size: 0.9rem;
+  color: #85d781;
+}
+
+/* Estado inactivo: todo más gris */
+.alarm-card--inactive .amount-value,
+.alarm-card--inactive .amount-currency {
+  color: #85d781;
+}
+
+.alarm-card--inactive .alarm-card__label {
+  color: #85d781;
+}
+
+/* Interruptor a la derecha */
+.alarm-switch {
+  width: 54px;
+  height: 30px;
+  border-radius: 9999px;
+  padding: 3px;
+
+  display: flex;
+  align-items: center;
+
+  cursor: pointer;
+  transition: background-color 0.2s ease, justify-content 0.2s ease;
+}
+
+/* Thumb del interruptor */
+.alarm-switch__thumb {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: #ffffff;
+}
+
+/* ON: verde, bolita a la derecha */
+.alarm-switch--on {
+  background-color: #85d781;
+  justify-content: flex-end;
+}
+
+/* OFF: negro, bolita a la izquierda */
+.alarm-switch--off {
+  background-color: #222222;
+  justify-content: flex-start;
+}
+
+.alarm-card {
+  margin: 12px auto;     /* ← centra cada tarjeta */
+  width: 90%;            /* opcional, tamaño más responsive */
+  max-width: 420px;      /* igual que la imagen que estás copiando */
+}

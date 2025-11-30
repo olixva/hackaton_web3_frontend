@@ -1,0 +1,53 @@
+.btn-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* centra horizontal */
+    width: 100%;
+}
+
+.alarms-container h1 {
+  text-align: left;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #85d781;          /* verde igual que las tarjetas */
+  margin: 30px;
+  margin-bottom: 0;
+  margin-top: 10px;
+  
+}
+
+
+.btn-create-alert {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 10px 120px;
+    background-color: #85d781;
+    border: 2px solid #85d781;
+    border-radius: 9999px;
+    color: white;
+
+    margin: 10px auto;
+    /* CENTRA EL BOTÓN */
+    display: block;
+    /* necesario para margin auto */
+}
+
+.btn-history-alert {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 10px 80px;
+    background-color: white;
+    border: 2px solid #85d781;
+    border-radius: 9999px;
+    color: #85d781;
+
+    margin: 10px auto;
+    /* CENTRA EL BOTÓN */
+    display: block;
+    /* necesario para margin auto */
+}

@@ -1,0 +1,138 @@
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal {
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 24px;
+  width: 90%;
+  max-width: 420px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+.modal-title {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 16px;
+  color: #34c759;
+}
+
+.modal-tabs {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  gap: 8px;
+}
+
+.tab {
+  flex: 1;
+  border-radius: 999px;
+  border: none;
+  padding: 8px 0;
+  background: #e6ffe9;
+  color: #34c759;
+  font-weight: 500;
+}
+
+.tab.active {
+  background: #34c759;
+  color: white;
+}
+
+.modal-time {
+  margin-bottom: 16px;
+}
+
+.modal-time-input {
+  width: 100%;
+  border-radius: 999px;
+  border: 2px solid #34c759;
+  padding: 8px 16px;
+  text-align: center;
+  font-size: 18px;
+  color: #34c759;
+}
+
+.modal-type-toggle {
+  display: flex;
+  gap: 8px;
+  margin: 16px 0;
+}
+
+.toggle-btn {
+  flex: 1;
+  border-radius: 999px;
+  border: none;
+  padding: 8px 0;
+  background: #e6ffe9;
+  color: #34c759;
+  font-weight: 500;
+}
+
+.toggle-btn.active {
+  background: #34c759;
+  color: white;
+}
+
+.modal-threshold {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.threshold-btn {
+  border-radius: 999px;
+  border: none;
+  width: 40px;
+  height: 40px;
+  font-size: 24px;
+  background: #e6ffe9;
+  color: #34c759;
+}
+
+.threshold-value {
+  font-size: 40px;
+  color: #34c759;
+  font-weight: 600;
+}
+
+.modal-name-input {
+  width: 100%;
+  border-radius: 999px;
+  border: 2px solid #34c759;
+  padding: 10px 16px;
+  margin-bottom: 24px;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.btn-cancel,
+.btn-confirm {
+  border-radius: 999px;
+  border: none;
+  padding: 8px 16px;
+  font-weight: 500;
+}
+
+.btn-cancel {
+  background: #f2f2f2;
+  color: #555;
+}
+
+.btn-confirm {
+  background: #34c759;
+  color: white;
+}
