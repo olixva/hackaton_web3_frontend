@@ -1,81 +1,72 @@
 import { NavLink } from "react-router-dom";
+import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar"
+import {
+  Menubar,
+  MenubarCheckboxItem,
+  MenubarContent,
+  MenubarItem,
+  MenubarMenu,
+  MenubarRadioGroup,
+  MenubarRadioItem,
+  MenubarSeparator,
+  MenubarShortcut,
+  MenubarSub,
+  MenubarSubContent,
+  MenubarSubTrigger,
+  MenubarTrigger,
+} from "@/components/ui/menubar"
+import "./menu.css"
 
-export function Menu() {
+interface WelcomeProps {
+
+  profileImage: string
+}
+
+export function Menu({ profileImage }: WelcomeProps) {
   return (
-    <nav
-      style={{
-        position: "fixed",
-        bottom: 0,
-        left: 0,
-        right: 0,
-        height: "60px",
-        borderTop: "1px solid #ddd",
-        display: "flex",
-        justifyContent: "space-around",
-        alignItems: "center",
-        backgroundColor: "#fff",
-        zIndex: 1000,
-      }}
-    >
-      <NavLink
-        to="/home"
-        style={({ isActive }) => ({
-          textDecoration: "none",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          fontSize: "12px",
-          color: isActive ? "#007bff" : "#555",
-        })}
-      >
-        <span>🏠</span>
-        <span>Home</span>
-      </NavLink>
+    <div className="menu-container">
+      <nav className="menu-bar">
+        <NavLink
+          to="/home"
+          className={({ isActive }) =>
+            "menu-link" + (isActive ? " menu-link--active" : "")
+          }
+        >
+          <div className="menu-item">
+            <i className="fi fi-tr-house-blank" />
+            <span>Inicio</span>
+            <span className="menu-dot" />
+          </div>
+        </NavLink>
 
-      <NavLink
-        to="/messages"
-        style={({ isActive }) => ({
-          textDecoration: "none",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          fontSize: "12px",
-          color: isActive ? "#007bff" : "#555",
-        })}
-      >
-        <span>📨</span>
-        <span>Mensajes</span>
-      </NavLink>
+        <NavLink
+          to="/messages"
+          className={({ isActive }) =>
+            "menu-link" + (isActive ? " menu-link--active" : "")
+          }
+        >
+          <div className="menu-item">
+            <i className="fi fi-tr-envelope" />
+            <span>Alertas</span>
+            <span className="menu-dot" />
+          </div>
+        </NavLink>
 
-      <NavLink
-        to="/bills"
-        style={({ isActive }) => ({
-          textDecoration: "none",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          fontSize: "12px",
-          color: isActive ? "#007bff" : "#555",
-        })}
-      >
-        <span>💳</span>
-        <span>Facturas</span>
-      </NavLink>
-
-      <NavLink
-        to="/profile"
-        style={({ isActive }) => ({
-          textDecoration: "none",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          fontSize: "12px",
-          color: isActive ? "#007bff" : "#555",
-        })}
-      >
-        <span>👤</span>
-        <span>Perfil</span>
-      </NavLink>
-    </nav>
+        <NavLink
+          to="/profile"
+          className={({ isActive }) =>
+            "menu-link" + (isActive ? " menu-link--active" : "")
+          }
+        >
+          <div className="menu-item">
+            <Avatar>
+              <AvatarImage src={profileImage} className="menu-avatar" />
+            </Avatar>
+            <span>Perfil</span>
+            <span className="menu-dot" />
+          </div>
+        </NavLink>
+      </nav>
+    </div>
   );
 }

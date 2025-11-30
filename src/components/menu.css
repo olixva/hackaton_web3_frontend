@@ -1,0 +1,78 @@
+/* Contenedor fijo en la parte inferior centrado */
+.menu-container {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 999;
+}
+
+/* Pastilla verde */
+.menu-bar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  padding: 18px 48px;
+  background: #ffffff;
+  border: 3px solid #85d781;
+  border-radius: 9999px;
+}
+
+/* Enlace (no controla el layout vertical, solo quita decoraciones) */
+.menu-link {
+  text-decoration: none;
+}
+
+/* Contenido vertical: icono/imagen arriba, texto y punto abajo */
+.menu-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #b6b6b6; 
+}
+
+/* Iconos */
+.menu-item i {
+  font-size: 28px;
+  color: inherit;
+  padding-bottom: -10px;
+}
+
+.menu-item span{
+    padding-top:-10px !important;
+    margin-top: -10px !important;
+    margin-bottom: 7px !important;
+}
+
+
+
+/* Estado activo: se pone todo en verde */
+.menu-link.menu-link--active .menu-item {
+  color: #85d781;
+}
+
+/* Punto verde debajo */
+.menu-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: #85d781;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+/* Punto visible solo en el enlace activo */
+.menu-link.menu-link--active .menu-dot {
+  opacity: 1;
+}
+
+
+
+
+
+
+

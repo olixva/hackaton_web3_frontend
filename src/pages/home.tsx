@@ -7,7 +7,7 @@ import { getUser, User } from "@/services/userService.service";
 export function Home() {
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
-  const userId: string = "692b566e0ef3a85601b288f2";
+  const userId: string = "692b9e2c0c45d7f4031812c4";
 
   useEffect(() => {
     getUser(userId)
@@ -21,7 +21,7 @@ export function Home() {
   }
 
   if (!user) {
-    return <p style={{ padding: "20px" }}>Hola Paco</p>;
+    return <p style={{ padding: "20px" }}>Hola Usuario</p>;
   }
 
   console.log("Usuario", user)
