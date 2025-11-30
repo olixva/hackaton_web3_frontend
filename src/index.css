@@ -69,7 +69,6 @@
   }
 }
 
-/* Splash screen animations */
 @keyframes fade-out {
   from {
     opacity: 1;

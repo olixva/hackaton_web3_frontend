@@ -1,4 +1,3 @@
-// src/services/chartService.service.ts
 import { StepsEnum } from "@/enums/steps.enum";
 
 const API_URL = "https://hackaton-web3-backend.vercel.app";

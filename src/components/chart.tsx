@@ -1,7 +1,5 @@
-// src/components/Chart.tsx
 import { useEffect, useState } from "react";
 import { Constants } from "@/constants";
-import { Loader2 } from "lucide-react";
 import {
   getChartWithStep,
   type ChartResponse,

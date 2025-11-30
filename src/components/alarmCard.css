@@ -1,4 +1,3 @@
-/* Contenedor de la tarjeta: pill verde */
 .alarm-card {
     display: flex;
     align-items: center;
@@ -14,13 +13,11 @@
     margin-bottom: 12px;
 }
 
-/* Columna izquierda: cantidad + texto */
 .alarm-card__info {
     display: flex;
     flex-direction: column;
 }
 
-/* Cantidad grande (25€ / 120€...) */
 .alarm-card__amount {
     display: flex;
     align-items: baseline;
@@ -40,14 +37,12 @@
     color: #85d781;
 }
 
-/* Texto debajo (Tope semanal, Vacaciones...) */
 .alarm-card__label {
     margin-top: 4px;
     font-size: 0.9rem;
     color: #85d781;
 }
 
-/* Estado inactivo: todo más gris */
 .alarm-card--inactive .amount-value,
 .alarm-card--inactive .amount-currency {
     color: #85d781;
@@ -57,7 +52,6 @@
     color: #85d781;
 }
 
-/* Interruptor a la derecha */
 .alarm-switch {
     width: 54px;
     height: 30px;
@@ -71,7 +65,6 @@
     transition: background-color 0.2s ease, justify-content 0.2s ease;
 }
 
-/* Thumb del interruptor */
 .alarm-switch__thumb {
     width: 24px;
     height: 24px;
@@ -79,13 +72,11 @@
     background-color: #ffffff;
 }
 
-/* ON: verde, bolita a la derecha */
 .alarm-switch--on {
     background-color: #85d781;
     justify-content: flex-end;
 }
 
-/* OFF: negro, bolita a la izquierda */
 .alarm-switch--off {
     background-color: #222222;
     justify-content: flex-start;
@@ -93,14 +84,10 @@
 
 .alarm-card {
     margin: 12px auto;
-    /* ← centra cada tarjeta */
     width: 90%;
-    /* opcional, tamaño más responsive */
     max-width: 420px;
-    /* igual que la imagen que estás copiando */
 }
 
-/* Skeleton styles */
 .alarm-card--skeleton {
     background-color: #f0fdf4;
     border-color: #85d781;

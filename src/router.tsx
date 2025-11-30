@@ -1,10 +1,8 @@
-// router.tsx
 import {
   createBrowserRouter,
   createRoutesFromElements,
   Route,
 } from "react-router-dom";
-import { Bills } from "./pages/bills";
 import { Home } from "./pages/home";
 import { Alerts } from "./pages/alerts";
 import { Profile } from "./pages/profile";
@@ -14,9 +12,7 @@ export const router = createBrowserRouter(
   createRoutesFromElements(
     <Route element={<Layout />} errorElement={<h1>Not found!</h1>}>
       <Route index element={<Home />} />
-
       <Route path="alerts" element={<Alerts />} />
-      <Route path="bills" element={<Bills />} />
       <Route path="profile" element={<Profile />} />
     </Route>
   )

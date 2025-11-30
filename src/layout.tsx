@@ -1,4 +1,3 @@
-// components/Layout.tsx
 import { Outlet } from "react-router-dom";
 import { Menu } from "./components/menu";
 import { useUser } from "./contexts/UserContext";

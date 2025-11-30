@@ -52,7 +52,6 @@ export function Profile({
 
   return (
     <div className="flex flex-col items-center bg-neutral-50 p-4 pt-8">
-      {/* Avatar Section */}
       <div className="relative mb-8">
         <Avatar className="h-32 w-32 border-4 border-white">
           <AvatarImage
@@ -75,8 +74,6 @@ export function Profile({
           <Plus className="h-5 w-5 text-white" />
         </Button>
       </div>
-
-      {/* Profile Items */}
       <div className="w-full max-w-sm space-y-3">
         {profileItems.map((item) => {
           if (item.clickable) {
