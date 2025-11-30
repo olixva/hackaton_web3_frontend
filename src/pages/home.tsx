@@ -2,12 +2,15 @@
 import Welcome from '../components/welcome';
 import { useEffect, useState } from "react";
 import { getUser, User } from "@/services/userService.service";
+import { Constants } from '@/constants';
+import { Chart } from '@/components/chart';
 
 
 export function Home() {
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
-  const userId: string = "692b9e2c0c45d7f4031812c4";
+  
+  const userId = Constants.userId;
 
   useEffect(() => {
     getUser(userId)
@@ -29,7 +32,7 @@ export function Home() {
   return (
     <div>
       <Welcome name={user.name} profileImage={user.profile_image_url}/>
-
+      <Chart/>
       </div>
   );
 }

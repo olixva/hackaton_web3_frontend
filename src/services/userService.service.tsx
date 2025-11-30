@@ -8,7 +8,6 @@ export interface User {
 //   email: string;
 }
 
-// Obtener usuario por id
 export async function getUser(id: string): Promise<User> {
   const res = await fetch(`${API_URL}/user/${id}`);
   if (!res.ok) throw new Error("Error cargando usuario");
