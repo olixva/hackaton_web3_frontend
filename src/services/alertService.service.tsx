@@ -2,6 +2,7 @@ import { Constants } from "@/constants";
 
 const API_URL = Constants.API_URL
 
+// Interface defining the structure of an alert on frontend
 export interface Alert {
   id: string;
   Active: boolean;
@@ -10,6 +11,7 @@ export interface Alert {
   userId: string;
 }
 
+// DTO for creating a new alarm on server
 interface CreateAlarmDTO {
   active: boolean;
   threshold: number;
@@ -17,6 +19,7 @@ interface CreateAlarmDTO {
   user_id: string;
 }
 
+// API response for an alert
 interface AlertApiResponse {
   id: string;
   active: boolean;
@@ -25,6 +28,7 @@ interface AlertApiResponse {
   user_id: string;
 }
 
+// Interface defining an alert history event
 export interface AlertHistoryItem {
   id: string;
   user_id: string;
@@ -34,29 +38,31 @@ export interface AlertHistoryItem {
 }
 
 
+// Fetches user alert history
 export async function getAlertHistory(
   userId: string
 ): Promise<AlertHistoryItem[]> {
   const res = await fetch(`${API_URL}/alarm/history/${userId}`);
 
   if (!res.ok) {
-    throw new Error("Error cargando historial");
+    throw new Error("Error loading history");
   }
 
   const data: AlertHistoryItem[] = await res.json();
   return data;
 }
 
+// Fetches all active alarms for a user
 export async function getAlarms(userId: string): Promise<Alert[]> {
   const res = await fetch(`${API_URL}/alarm/user/${userId}`);
 
   if (!res.ok) {
-    throw new Error("Error cargando alarmas");
+    throw new Error("Error loading alarms");
   }
 
   const data: AlertApiResponse[] = await res.json();
 
-  // Mapeamos de modelo API -> modelo FRONT
+  // Transforms API model to frontend model
   return data.map<Alert>((a) => ({
     id: a.id,
     Active: a.active,
@@ -66,21 +72,23 @@ export async function getAlarms(userId: string): Promise<Alert[]> {
   }));
 }
 
+// Toggles an existing alarm on or off
 export async function toggleAlarm(alarmId: string): Promise<void> {
   const res = await fetch(`${API_URL}/alarm/${alarmId}/toggle`, {
     method: "PATCH",
   });
 
   if (!res.ok) {
-    throw new Error("Error haciendo toggle de la alarma");
+    throw new Error("Error toggling alarm");
   }
 }
 
 
+// Creates a new alarm and returns data mapped to frontend model
 export async function createAlarm(
   data: CreateAlarmDTO
 ): Promise<Alert> {
-  console.log("[Service] body enviado a /alarm:", data);
+  console.log("[Service] body sent to /alarm:", data);
 
   const res = await fetch(`${API_URL}/alarm`, {
     method: "POST",
@@ -93,12 +101,14 @@ export async function createAlarm(
   if (!res.ok) {
     const text = await res.text();
     console.error("[Service] ERROR /alarm:", text);
-    throw new Error("Error creando la alarma");
+    throw new Error("Error creating alarm");
   }
 
+  // Extracts ID from API response
   const json = (await res.json()) as { id: string } | AlertApiResponse;
   const id = "id" in json ? json.id : (json as AlertApiResponse).id;
 
+  // Returns alarm in frontend format
   return {
     id,
     Active: data.active,
