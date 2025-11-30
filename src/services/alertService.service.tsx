@@ -1,11 +1,11 @@
 const API_URL = "https://hackaton-web3-backend.vercel.app";
 
 export interface Alert {
+  id: string;
   Active: boolean;
   threshold: number;
-  id: string;
-  userId: string;
   type: "money" | "energy";
+  userId: string;
 }
 
 interface CreateAlarmDTO {
@@ -23,16 +23,45 @@ interface AlertApiResponse {
   user_id: string;
 }
 
+export interface AlertHistoryItem {
+  id: string;
+  user_id: string;
+  alarm_id: string;
+  value: number;   
+  triggered_at: string; 
+}
+
+
+export async function getAlertHistory(
+  userId: string
+): Promise<AlertHistoryItem[]> {
+  const res = await fetch(`${API_URL}/alarm/history/${userId}`);
+
+  if (!res.ok) {
+    throw new Error("Error cargando historial");
+  }
+
+  const data: AlertHistoryItem[] = await res.json();
+  return data;
+}
 
 export async function getAlarms(userId: string): Promise<Alert[]> {
-  const res = await fetch(`${API_URL}/alarm/user/692b9e2c0c45d7f4031812c4`);
+  const res = await fetch(`${API_URL}/alarm/user/${userId}`);
 
   if (!res.ok) {
     throw new Error("Error cargando alarmas");
   }
 
-  const data: Alert[] = await res.json();
-  return data;
+  const data: AlertApiResponse[] = await res.json();
+
+  // Mapeamos de modelo API -> modelo FRONT
+  return data.map<Alert>((a) => ({
+    id: a.id,
+    Active: a.active,
+    threshold: a.threshold,
+    type: a.type,
+    userId: a.user_id,
+  }));
 }
 
 export async function toggleAlarm(alarmId: string): Promise<void> {

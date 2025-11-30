@@ -33,7 +33,7 @@ export function CreateAlarmModal({
   const handleSubmit = async () => {
     try {
       setIsSubmitting(true);
-      console.log("[Modal] handleSubmit -> valores:", { threshold, type });
+      console.log("[Modal] handleSubmit -> valores:", { threshold, type,  activate: true });
       await onConfirm({ threshold, type });
       console.log("[Modal] onConfirm resuelto");
     } catch (e) {

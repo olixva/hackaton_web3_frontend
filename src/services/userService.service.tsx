@@ -3,6 +3,7 @@ const API_URL = "https://hackaton-web3-backend.vercel.app";
 export interface User {
   id: number;
   name: string;
+  email: string;
   profile_image_url: string;
   balance_satoshis?: number;
   balance_euro?:number;
