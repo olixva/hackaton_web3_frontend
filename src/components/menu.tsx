@@ -1,10 +1,9 @@
 import { NavLink } from "react-router-dom";
-import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar"
-import "./menu.css"
+import "./menu.css";
+import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 
 interface WelcomeProps {
-
-  profileImage: string
+  profileImage: string;
 }
 
 export function Menu({ profileImage }: WelcomeProps) {
@@ -45,7 +44,7 @@ export function Menu({ profileImage }: WelcomeProps) {
         >
           <div className="menu-item">
             <Avatar>
-              <AvatarImage src={profileImage} className="menu-avatar" />
+              <AvatarImage src={profileImage} className="object-cover" />
             </Avatar>
             <span>Perfil</span>
             <span className="menu-dot" />
