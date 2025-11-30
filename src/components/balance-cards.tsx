@@ -1,4 +1,5 @@
 import type { User } from "@/services/userService.service";
+import cardSaldo from "@/assets/card_saldo.png";
 
 interface BalanceCardsProps {
   user: User;
@@ -13,12 +14,13 @@ export function BalanceCards({ user }: BalanceCardsProps) {
 
   return (
     <div className="mt-6 grid grid-cols-2 gap-4 px-4">
-      <div className="rounded-3xl bg-gradient-to-br from-[#052e16] via-[#065f46] to-[#16a34a] text-white p-5 bg-[url('/src/assets/card_saldo.png')] bg-cover bg-center">
+      <div
+        className="rounded-3xl bg-gradient-to-br from-[#052e16] via-[#065f46] to-[#16a34a] text-white p-5 bg-cover bg-center"
+        style={{ backgroundImage: `url(${cardSaldo})` }}
+      >
         <p className="text-sm opacity-80">Tu saldo</p>
 
-        <p className="mt-1 text-4xl font-semibold">
-          {balanceEuro.toFixed(4)}€
-        </p>
+        <p className="mt-1 text-4xl font-semibold">{balanceEuro.toFixed(4)}€</p>
 
         <p className="mt-4 text-xs opacity-80">Saldo en satoshis:</p>
 
@@ -37,9 +39,7 @@ export function BalanceCards({ user }: BalanceCardsProps) {
 
         <p className="mt-4 text-xs opacity-90">Consumo medio diario</p>
 
-        <p className="text-lg font-medium">
-          {dailyAvgKwh.toFixed(1)} kWh
-        </p>
+        <p className="text-lg font-medium">{dailyAvgKwh.toFixed(1)} kWh</p>
       </div>
     </div>
   );

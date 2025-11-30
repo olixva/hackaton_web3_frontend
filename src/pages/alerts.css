@@ -6,6 +6,10 @@
     width: 100%;
 }
 
+.alarms-container {
+    margin-top: 40px;
+}
+
 .alarms-container h1 {
     text-align: left;
     font-size: 1.6rem;

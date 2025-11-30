@@ -9,9 +9,8 @@ import {
   DrawerTitle,
   DrawerTrigger,
 } from "@/components/ui/drawer";
-import { useEffect, useState } from "react";
-import { getUser, User } from "@/services/userService.service";
-import { Constants } from "@/constants";
+import { useState } from "react";
+import { useUser } from "@/contexts/UserContext";
 
 interface ProfileProps {
   name?: string;
@@ -28,28 +27,14 @@ export function Profile({
   avatarUrl,
   bsvAddress = "1BoatSLRHtKNngkdXEeobR76b53LETtpyT",
 }: ProfileProps) {
-  const [user, setUser] = useState<User | null>(null);
-  const [loading, setLoading] = useState(true);
+  const { user, loading } = useUser();
   const [copied, setCopied] = useState(false);
-
-  const userId = Constants.userId;
-
-  useEffect(() => {
-    getUser(userId)
-      .then((data) => setUser(data))
-      .catch((err) => console.error(err))
-      .finally(() => setLoading(false));
-  }, []);
 
   const handleCopy = () => {
     navigator.clipboard.writeText(user?.bsv_address || bsvAddress);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
-
-  if (loading) {
-    return <p style={{ padding: "20px" }}>Cargando perfil...</p>;
-  }
 
   if (!user) {
     return <p style={{ padding: "20px" }}>Perfil no encontrado</p>;
@@ -66,7 +51,7 @@ export function Profile({
   ];
 
   return (
-    <div className="flex min-h-screen flex-col items-center bg-neutral-50 p-4 pt-8">
+    <div className="flex flex-col items-center bg-neutral-50 p-4 pt-8">
       {/* Avatar Section */}
       <div className="relative mb-8">
         <Avatar className="h-32 w-32 border-4 border-white">
