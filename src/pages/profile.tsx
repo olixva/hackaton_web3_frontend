@@ -36,10 +36,6 @@ export function Profile({
     setTimeout(() => setCopied(false), 2000);
   };
 
-  if (loading) {
-    return <p style={{ padding: "20px" }}>Cargando perfil...</p>;
-  }
-
   if (!user) {
     return <p style={{ padding: "20px" }}>Perfil no encontrado</p>;
   }

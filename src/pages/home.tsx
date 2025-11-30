@@ -6,10 +6,6 @@ import { useUser } from "@/contexts/UserContext";
 export function Home() {
   const { user, loading } = useUser();
 
-  if (loading) {
-    return <p style={{ padding: "20px" }}>Cargando usuario...</p>;
-  }
-
   if (!user) {
     return <p style={{ padding: "20px" }}>Hola Usuario</p>;
   }

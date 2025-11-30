@@ -11,7 +11,7 @@ export function Menu({ profileImage }: WelcomeProps) {
     <div className="menu-container">
       <nav className="menu-bar">
         <NavLink
-          to="/home"
+          to="/"
           className={({ isActive }) =>
             "menu-link" + (isActive ? " menu-link--active" : "")
           }
