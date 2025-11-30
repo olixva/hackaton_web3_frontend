@@ -1,4 +1,3 @@
-// src/pages/Alerts.tsx
 import { useEffect, useState } from "react";
 import {
   getAlarms,

@@ -1,4 +1,6 @@
-const API_URL = "https://hackaton-web3-backend.vercel.app";
+import { Constants } from "@/constants";
+
+const API_URL = Constants.API_URL
 
 export interface User {
   id: number;

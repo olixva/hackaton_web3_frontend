@@ -1,6 +1,7 @@
+import { Constants } from "@/constants";
 import { StepsEnum } from "@/enums/steps.enum";
 
-const API_URL = "https://hackaton-web3-backend.vercel.app";
+const API_URL = Constants.API_URL
 
 export interface ChartPoint {
   timestamp: string;
