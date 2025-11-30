@@ -1,0 +1,39 @@
+// src/components/chart.css
+.skeleton-text {
+    background-color: rgba(255, 255, 255, 0.3);
+    color: transparent;
+    border-radius: 4px;
+    animation: skeleton-loading 1.5s ease-in-out infinite;
+}
+
+.skeleton-bar {
+    background-color: rgba(133, 215, 129, 0.4);
+    border-radius: 4px 4px 0 0;
+    width: 20px;
+    min-height: 20px;
+    animation: skeleton-bar-loading 1.5s ease-in-out infinite;
+}
+
+@keyframes skeleton-loading {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes skeleton-bar-loading {
+    0% {
+        opacity: 0.4;
+    }
+    50% {
+        opacity: 0.8;
+    }
+    100% {
+        opacity: 0.4;
+    }
+}

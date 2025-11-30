@@ -1,8 +1,15 @@
-// src/pages/Messages.tsx
+// src/pages/Alerts.tsx
 import { useEffect, useState } from "react";
-import { getAlarms, Alert, toggleAlarm, createAlarm, getAlertHistory, AlertHistoryItem } from "@/services/alertService.service";
+import {
+  getAlarms,
+  Alert,
+  toggleAlarm,
+  createAlarm,
+  getAlertHistory,
+  AlertHistoryItem,
+} from "@/services/alertService.service";
 import { AlarmCard } from "@/components/alarmCard";
-import "./messages.css";
+import "./alerts.css";
 import { Constants } from "@/constants";
 import { CreateAlarmModal } from "@/components/createAlarmModal";
 import type { AlarmType } from "@/components/createAlarmModal";
@@ -15,10 +22,27 @@ import {
   DrawerTrigger,
 } from "@/components/ui/drawer";
 
+function SkeletonAlarmCard() {
+  return (
+    <div className="alarm-card alarm-card--skeleton">
+      <div className="alarm-card__info">
+        <div className="alarm-card__amount">
+          <span className="amount-value skeleton-text">---</span>
+          <span className="amount-currency skeleton-text">€</span>
+        </div>
+        <div className="alarm-card__label skeleton-text">Cargando...</div>
+      </div>
+      <div className="alarm-switch alarm-switch--skeleton">
+        <div className="alarm-switch__thumb" />
+      </div>
+    </div>
+  );
+}
 
-export function Messages() {
+export function Alerts() {
   const [alarms, setAlarms] = useState<Alert[]>([]);
   const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
+  const [alarmsLoading, setAlarmsLoading] = useState(true);
   const userId = Constants.userId;
 
   // estado para el Drawer de historial
@@ -27,9 +51,11 @@ export function Messages() {
   const [historyLoading, setHistoryLoading] = useState(false);
 
   useEffect(() => {
+    setAlarmsLoading(true);
     getAlarms(userId)
       .then(setAlarms)
-      .catch((err) => console.error(err));
+      .catch((err) => console.error(err))
+      .finally(() => setAlarmsLoading(false));
   }, []);
 
   useEffect(() => {
@@ -42,13 +68,10 @@ export function Messages() {
       .finally(() => setHistoryLoading(false));
   }, [isHistoryOpen, userId]);
 
-
   const handleToggleAlarm = async (id: string, newActive: boolean) => {
     // Actualización optimista del estado
     setAlarms((prev) =>
-      prev.map((a) =>
-        a.id === id ? { ...a, Active: newActive } : a
-      )
+      prev.map((a) => (a.id === id ? { ...a, Active: newActive } : a))
     );
 
     try {
@@ -58,9 +81,7 @@ export function Messages() {
 
       // Revertir el cambio si falla la API
       setAlarms((prev) =>
-        prev.map((a) =>
-          a.id === id ? { ...a, Active: !newActive } : a
-        )
+        prev.map((a) => (a.id === id ? { ...a, Active: !newActive } : a))
       );
     }
   };
@@ -68,7 +89,10 @@ export function Messages() {
   const handleOpenCreateModal = () => setIsCreateModalOpen(true);
   const handleCloseCreateModal = () => setIsCreateModalOpen(false);
 
-  const handleCreateAlarm = async (values: { threshold: number; type: AlarmType }) => {
+  const handleCreateAlarm = async (values: {
+    threshold: number;
+    type: AlarmType;
+  }) => {
     try {
       const newAlert = await createAlarm({
         active: true,
@@ -88,26 +112,29 @@ export function Messages() {
   const formatCurrencySymbol = (type: "money" | "energy") =>
     type === "money" ? "€" : "kWh";
 
-
   return (
     <div className="alarms-container">
       <h1>Alertas activas</h1>
-      {alarms.map((alarm) => (
-        <AlarmCard
-          key={alarm.id}
-          alarm={alarm}
-          onToggle={handleToggleAlarm}
-        />
-      ))}
+      {alarmsLoading ? (
+        <>
+          <SkeletonAlarmCard />
+          <SkeletonAlarmCard />
+          <SkeletonAlarmCard />
+        </>
+      ) : (
+        alarms.map((alarm) => (
+          <AlarmCard
+            key={alarm.id}
+            alarm={alarm}
+            onToggle={handleToggleAlarm}
+          />
+        ))
+      )}
 
       <div className="btn-container">
-        <button
-          className="btn-create-alert"
-          onClick={handleOpenCreateModal}
-        >
+        <button className="btn-create-alert" onClick={handleOpenCreateModal}>
           Crear alerta
         </button>
-
 
         {/* Drawer para el historial */}
         <Drawer open={isHistoryOpen} onOpenChange={setIsHistoryOpen}>
@@ -127,9 +154,7 @@ export function Messages() {
               {historyLoading ? (
                 <p className="history-loading">Cargando...</p>
               ) : history.length === 0 ? (
-                <p className="history-empty">
-                  No hay alertas en el historial.
-                </p>
+                <p className="history-empty">No hay alertas en el historial.</p>
               ) : (
                 <div className="history-list">
                   {history.map((item) => {
@@ -139,12 +164,15 @@ export function Messages() {
                     const symbol = formatCurrencySymbol(alarm?.type ?? "money");
 
                     // formatear la hora a 10:45, 22:18, etc.
-                    const time = new Date(item.triggered_at).toLocaleTimeString("es-ES", {
-                      day: "2-digit",
-                      month: "short",
-                      hour: "2-digit",
-                      minute: "2-digit",
-                    });
+                    const time = new Date(item.triggered_at).toLocaleTimeString(
+                      "es-ES",
+                      {
+                        day: "2-digit",
+                        month: "short",
+                        hour: "2-digit",
+                        minute: "2-digit",
+                      }
+                    );
 
                     // texto del centro (por ahora algo genérico; si luego el backend manda más info, lo cambiamos)
                     const label = alarm
@@ -183,7 +211,5 @@ export function Messages() {
         onConfirm={handleCreateAlarm}
       />
     </div>
-
-
   );
 }

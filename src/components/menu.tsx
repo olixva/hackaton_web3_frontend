@@ -24,7 +24,7 @@ export function Menu({ profileImage }: WelcomeProps) {
         </NavLink>
 
         <NavLink
-          to="/messages"
+          to="/alerts"
           className={({ isActive }) =>
             "menu-link" + (isActive ? " menu-link--active" : "")
           }

@@ -99,3 +99,33 @@
     max-width: 420px;
     /* igual que la imagen que estás copiando */
 }
+
+/* Skeleton styles */
+.alarm-card--skeleton {
+    background-color: #f0fdf4;
+    border-color: #85d781;
+}
+
+.skeleton-text {
+    background-color: #d1fae5;
+    color: transparent;
+    border-radius: 4px;
+    animation: skeleton-loading 1.5s ease-in-out infinite;
+}
+
+@keyframes skeleton-loading {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.6;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.alarm-switch--skeleton {
+    background-color: #d1fae5;
+    cursor: default;
+}
