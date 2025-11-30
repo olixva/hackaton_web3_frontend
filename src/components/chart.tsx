@@ -147,18 +147,27 @@ export function Chart() {
               {showPrice ? "Precio" : "Consumo"}
             </CardTitle>
 
-            <div className="flex items-center gap-1 bg-muted rounded-full px-1 py-0.5">
+            <div className="flex items-center gap-1 bg-[#85D781] rounded-full px-1 py-0.5">
               <button
-                className={`px-2 py-1 text-xs rounded-full ${!showPrice ? "bg-background" : "text-muted-foreground"
-                  }`}
                 onClick={() => setShowPrice(false)}
+                className={`
+      px-3 py-1 text-xs font-semibold rounded-full transition
+      ${!showPrice
+                    ? "bg-black text-white"       // activo (kWh)
+                    : "bg-transparent text-white"}             // inactivo
+    `}
               >
                 kWh
               </button>
+
               <button
-                className={`px-2 py-1 text-xs rounded-full ${showPrice ? "bg-background" : "text-muted-foreground"
-                  }`}
                 onClick={() => setShowPrice(true)}
+                className={`
+      px-3 py-1 text-xs font-semibold rounded-full transition
+      ${showPrice
+                    ?   "bg-black text-white"         // activo (€)
+                    : "bg-transparent text-white"}             // inactivo
+    `}
               >
                 €
               </button>
