@@ -55,7 +55,7 @@ export function Profile({
   ];
 
   return (
-    <div className="flex min-h-screen flex-col items-center bg-neutral-50 p-4 pt-8">
+    <div className="flex flex-col items-center bg-neutral-50 p-4 pt-8">
       {/* Avatar Section */}
       <div className="relative mb-8">
         <Avatar className="h-32 w-32 border-4 border-white">
