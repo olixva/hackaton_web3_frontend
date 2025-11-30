@@ -8,6 +8,7 @@ import {
 } from "@/services/chartService.service";
 import { StepsEnum } from "@/enums/steps.enum";
 import "./chart.css";
+import cardGraficos from "@/assets/card_graficos.png";
 
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 
@@ -116,7 +117,10 @@ export function Chart() {
   if (loading) {
     return (
       <div className="m-[15px]">
-        <Card className="w-full mt-4 rounded-3xl bg-[url('/src/assets/card_graficos.png')] bg-cover bg-center">
+        <Card
+          className="w-full mt-4 rounded-3xl bg-cover bg-center"
+          style={{ backgroundImage: `url(${cardGraficos})` }}
+        >
           <CardHeader className="space-y-4">
             <div className="flex items-center justify-between">
               <CardTitle className="text-lg text-white skeleton-text">
@@ -165,7 +169,10 @@ export function Chart() {
 
   return (
     <div className="m-[15px]">
-      <Card className="w-full mt-4 rounded-3xl bg-[url('/src/assets/card_graficos.png')] bg-cover bg-center">
+      <Card
+        className="w-full mt-4 rounded-3xl bg-cover bg-center"
+        style={{ backgroundImage: `url(${cardGraficos})` }}
+      >
         <CardHeader className="space-y-4">
           <div className="flex items-center justify-between">
             <CardTitle className="text-lg text-white">

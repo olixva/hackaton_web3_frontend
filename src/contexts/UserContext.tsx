@@ -35,7 +35,7 @@ export const UserProvider: React.FC<{ children: React.ReactNode }> = ({
 
   if (!videoEnded) {
     return (
-      <div className="fixed inset-0 z-50 flex items-center justify-center bg-black">
+      <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black">
         <video
           autoPlay
           muted
@@ -53,7 +53,7 @@ export const UserProvider: React.FC<{ children: React.ReactNode }> = ({
 
   if (!showContent) {
     return (
-      <div className="fixed inset-0 z-50 flex items-center justify-center bg-black animate-fade-out">
+      <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black animate-fade-out">
         {/* Espacio vacío mientras se prepara la transición */}
       </div>
     );
