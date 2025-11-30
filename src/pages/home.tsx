@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { getUser, User } from "@/services/userService.service";
 import { Constants } from '@/constants';
 import { Chart } from '@/components/chart';
+import { BalanceCards } from '@/components/balance-cards';
 
 
 export function Home() {
@@ -32,6 +33,7 @@ export function Home() {
   return (
     <div>
       <Welcome name={user.name} profileImage={user.profile_image_url}/>
+      <BalanceCards user={user} />
       <Chart/>
       </div>
   );
