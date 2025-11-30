@@ -18,8 +18,6 @@ interface ProfileProps {
   email?: string;
   walletName?: string;
   avatarUrl?: string;
-  balance1?: string;
-  balance2?: string;
   bsvAddress?: string;
 }
 
@@ -28,8 +26,6 @@ export function Profile({
   email,
   walletName = "Billetera",
   avatarUrl,
-  balance1 = "34€",
-  balance2 = "8.000.000$",
   bsvAddress = "1BoatSLRHtKNngkdXEeobR76b53LETtpyT",
 }: ProfileProps) {
   const [user, setUser] = useState<User | null>(null);
@@ -46,7 +42,7 @@ export function Profile({
   }, []);
 
   const handleCopy = () => {
-    navigator.clipboard.writeText(bsvAddress);
+    navigator.clipboard.writeText(user?.bsv_address || bsvAddress);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
@@ -123,11 +119,12 @@ export function Profile({
                         Saldo
                       </p>
                       <div className="flex items-center justify-between">
-                        <p className="text-4xl font-bold text-primaryGreen">
-                          {balance1}
+                        <p className="text-2xl font-bold text-primaryGreen">
+                          {user?.balance_euro?.toFixed(4) ?? 0}€
                         </p>
-                        <p className="text-xl font-semibold text-black">
-                          {balance2}
+                        <p className="text-base font-semibold text-black">
+                          {user?.balance_satoshis?.toLocaleString("es-ES") ?? 0}{" "}
+                          sats
                         </p>
                       </div>
                     </div>
@@ -138,7 +135,8 @@ export function Profile({
                             BSV address
                           </p>
                           <p className="text-xs font-medium text-primaryGreen">
-                            {bsvAddress.slice(0, 24) + "..."}
+                            {(user?.bsv_address || bsvAddress).slice(0, 24) +
+                              "..."}
                           </p>
                         </div>
                         <Button

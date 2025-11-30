@@ -139,11 +139,11 @@ export function Chart() {
   const activeKey = showPrice ? "price" : "kw";
 
   return (
-    <div className="m-[25px]">
-      <Card className="w-full mt-4 rounded-3xl">
+    <div className="m-[15px]">
+      <Card className="w-full mt-4 rounded-3xl bg-[url('/src/assets/card_graficos.png')] bg-cover bg-center">
         <CardHeader className="space-y-4">
           <div className="flex items-center justify-between">
-            <CardTitle className="text-lg">
+            <CardTitle className="text-lg text-white">
               {showPrice ? "Precio" : "Consumo"}
             </CardTitle>
 
@@ -169,7 +169,7 @@ export function Chart() {
               onClick={() => setStep(StepsEnum.Hourly)}
               className={`flex-1 py-1.5 text-xs rounded-full border ${step === StepsEnum.Hourly
                 ? "bg-[#85d781] text-white border-[#85d781]"
-                : "bg-transparent text-[#85d781] border-[#85d781]/40"
+                : "bg-[#e5ffe4] text-[#85d781] border-[#85d781]/40"
                 }`}
             >
               Hora
@@ -178,7 +178,7 @@ export function Chart() {
               onClick={() => setStep(StepsEnum.Daily)}
               className={`flex-1 py-1.5 text-xs rounded-full border ${step === StepsEnum.Daily
                 ? "bg-[#85d781] text-white border-[#85d781]"
-                : "bg-transparent text-[#85d781] border-[#85d781]/40"
+                : "bg-[#e5ffe4] text-[#85d781] border-[#85d781]/40"
                 }`}
             >
               Día
@@ -187,7 +187,7 @@ export function Chart() {
               onClick={() => setStep(StepsEnum.Weekly)}
               className={`flex-1 py-1.5 text-xs rounded-full border ${step === StepsEnum.Weekly
                 ? "bg-[#85d781] text-white border-[#85d781]"
-                : "bg-transparent text-[#85d781] border-[#85d781]/40"
+                : "bg-[#e5ffe4] text-[#85d781] border-[#85d781]/40"
                 }`}
             >
               Semana
@@ -196,7 +196,7 @@ export function Chart() {
               onClick={() => setStep(StepsEnum.Monthly)}
               className={`flex-1 py-1.5 text-xs rounded-full border ${step === StepsEnum.Monthly
                 ? "bg-[#85d781] text-white border-[#85d781]"
-                : "bg-transparent text-[#85d781] border-[#85d781]/40"
+                : "bg-[#e5ffe4] text-[#85d781] border-[#85d781]/40"
                 }`}
             >
               Mes
@@ -218,7 +218,7 @@ export function Chart() {
                 axisLine={false}
               />
               <ChartTooltip content={<ChartTooltipContent />} />
-              <ChartLegend content={<ChartLegendContent />} />
+              <ChartLegend className="text-white" content={<ChartLegendContent />} />
               <Bar
                 dataKey={activeKey}
                 radius={4}

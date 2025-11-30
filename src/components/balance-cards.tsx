@@ -13,7 +13,7 @@ export function BalanceCards({ user }: BalanceCardsProps) {
 
   return (
     <div className="mt-6 grid grid-cols-2 gap-4 px-4">
-      <div className="rounded-3xl bg-gradient-to-br from-[#052e16] via-[#065f46] to-[#16a34a] text-white p-5">
+      <div className="rounded-3xl bg-gradient-to-br from-[#052e16] via-[#065f46] to-[#16a34a] text-white p-5 bg-[url('/src/assets/card_saldo.png')] bg-cover bg-center">
         <p className="text-sm opacity-80">Tu saldo</p>
 
         <p className="mt-1 text-4xl font-semibold">
