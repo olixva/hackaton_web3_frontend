@@ -1,11 +1,12 @@
-// src/services/userService.ts
 const API_URL = "https://hackaton-web3-backend.vercel.app";
 
 export interface User {
   id: number;
   name: string;
   profile_image_url: string;
-//   email: string;
+  balance_satoshis?: number;
+  balance_euro?:number;
+  monthly_usage_kwh?: number;
 }
 
 export async function getUser(id: string): Promise<User> {
