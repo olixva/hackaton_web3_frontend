@@ -46,7 +46,6 @@ export function CreateAlarmModal({
     <div className="modal-overlay">
       <div className="modal">
         <h2 className="modal-title">Crear nueva alerta</h2>
-                {/* Toggle € / kWh */}
         <div className="modal-type-toggle">
           <button
             className={`toggle-btn ${type === "money" ? "active" : ""}`}
@@ -61,7 +60,6 @@ export function CreateAlarmModal({
             kWh
           </button>
         </div>
-                {/* Selector numérico */}
         <div className="modal-threshold">
           <button onClick={handleDecrease} className="threshold-btn">
             -
@@ -72,7 +70,6 @@ export function CreateAlarmModal({
           </button>
         </div>
 
-        {/* ... resto igual ... */}
         <div className="modal-footer">
           <button className="btn-cancel" onClick={onClose} disabled={isSubmitting}>
             Cancelar

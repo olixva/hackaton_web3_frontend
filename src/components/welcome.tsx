@@ -1,5 +1,4 @@
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar"
-// import "./welcome.css"
 
 interface WelcomeProps {
     name: string
